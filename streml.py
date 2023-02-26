@@ -13,7 +13,7 @@ st.title('📈 Energy Consumption Automated Time Series Forecasting')
 
 """
 This data app uses Facebook's open-source Prophet library to automatically generate future forecast values from an imported dataset.
-You'll be able to import your data from a CSV file, visualize trends and features, analyze forecast performance, and finally download the created forecast 😵 
+You'll be able to import your data from a CSV file, visualize trends and features, analyze forecast performance, and finally download the created forecast 😍 
 
 """
 
@@ -40,13 +40,7 @@ except Exception as e:
 """
 ### Fetch Data from Source
 """
-# df = st.file_uploader('Import the time series csv file here. Columns must be labeled ds and y. The input to Prophet is always a dataframe with two columns: ds and y. The ds (datestamp) column should be of a format expected by Pandas, ideally YYYY-MM-DD for a date or YYYY-MM-DD HH:MM:SS for a timestamp. The y column must be numeric, and represents the measurement we wish to forecast.', type='csv')
 
-# st.info(
-#             f"""
-#                 👆 Upload a .csv file first. Sample to try: [peyton_manning_wiki_ts.csv](https://raw.githubusercontent.com/zachrenwick/streamlit_forecasting_app/master/example_data/example_wp_log_peyton_manning.csv)
-#                 """
-#         )
 
 if df is not None:
     data = df
@@ -120,8 +114,8 @@ if df is not None:
     forecast_long =  forecast_long[forecast_long['ds'] > max_date]
 
     # Convert back to original scale
-    forecast_short["yhat"] = np.exp(forecast_short["yhat"])
-    forecast_long["yhat"] = np.exp(forecast_long["yhat"])
+#     forecast_short["yhat"] = np.exp(forecast_short["yhat"])
+#     forecast_long["yhat"] = np.exp(forecast_long["yhat"])
 
 
     # Streamlit dashboard
@@ -132,7 +126,7 @@ if df is not None:
     st.line_chart(forecast_long[["ds", "yhat"]].set_index("ds"))
 
     
-    st.write("# Actual vs Precited")
+    st.write("# Actual vs Predicted")
     
     """
     The next visual shows the actual (black dots) and predicted (blue line) values over time.
@@ -157,3 +151,4 @@ if df is not None:
     b64 = base64.b64encode(csv_exp.encode()).decode()  # some strings <-> bytes conversions necessary here
     href = f'<a href="data:file/csv;base64,{b64}">Download CSV File</a> (right-click and save as ** &lt;forecast_name&gt;.csv**)'
     st.markdown(href, unsafe_allow_html=True)
+
