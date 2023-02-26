@@ -13,7 +13,8 @@ st.title('📈 Energy Consumption Automated Time Series Forecasting')
 
 """
 This data app uses Facebook's open-source Prophet library to automatically generate future forecast values from an imported dataset.
-You'll be able to import your data from a CSV file, visualize trends and features, analyze forecast performance, and finally download the created forecast 😍 
+You'll be able to import your data from MySQL DB, visualize trends and features, analyze forecast performance, and finally download the created forecast 😍
+ 😍 
 
 """
 
