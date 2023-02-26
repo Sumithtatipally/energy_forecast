@@ -12,9 +12,8 @@ import mysql.connector as connection
 st.title('📈 Energy Consumption Automated Time Series Forecasting')
 
 """
-This data app uses Facebook's open-source Prophet library to automatically generate future forecast values from an imported dataset.
-You'll be able to import your data from MySQL DB, visualize trends and features, analyze forecast performance, and finally download the created forecast 😍
- 😍 
+This App uses time series forecasting models like ARIMA, SARIMA and Prophet to automatically generate future forecast values from an imported dataset. You'll be able to import your data from MySQL DB, visualize trends and features, analyze forecast performance, and finally download the created forecast ⚡️⚡️
+
 
 """
 
@@ -93,9 +92,6 @@ if df is not None:
     yhat_upper: the upper bound of our forecasts
     linkcode
     
-    A variation in values from the output presented is to be expected as Prophet relies on Markov chain Monte Carlo (MCMC) methods to generate its forecasts.
-
-    MCMC is a stochastic process, so values will be slightly different each time.
     """
     forecast = m.predict(future)
     fcst = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]
