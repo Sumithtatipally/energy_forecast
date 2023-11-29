@@ -28,6 +28,9 @@ USER = "root"
 PASSWORD = "Gig@Sql0802$Adm/f"
 # connect to MySQL server
 
+df = pd.DataFrame()
+
+
 try:
     mydb = connection.connect(host=HOST, database = DATABASE,user=USER, passwd=PASSWORD,use_pure=True)
     query = "Select * from Electricity_cons;"
